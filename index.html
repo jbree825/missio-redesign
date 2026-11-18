@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missio — One Login, Endless Impact | Website Redesign Concept</title>
+<meta name="description" content="Bold homepage redesign concept for Missio.io — one platform for fundraising, CRM, events & HR for mission-driven teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1E3C; --ink:#10233F; --coral:#FF5A3C; --coral-d:#E8442A;
+  --amber:#FFB020; --teal:#0E9F8A; --sky:#2E7CF6; --cream:#FFF9F2;
+  --paper:#FFFFFF; --muted:#5A6B84; --line:#E8E0D5; --soft:#F4EFE7;
+  --r:22px; --shadow:0 18px 45px rgba(10,30,60,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Sora','Inter',sans-serif;line-height:1.08;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);background:#FFE9E3;border:1px solid #FFD2C7;padding:7px 14px;border-radius:999px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--coral)}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800}
+.lede{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:640px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;padding:15px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 10px 26px rgba(255,90,60,.35)}
+.btn-coral:hover{background:var(--coral-d)}
+.btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn-navy{background:var(--navy);color:#fff}
+section{padding:84px 0}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{margin:16px 0 12px}
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,249,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:800;font-size:24px;color:var(--navy)}
+.logo-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--coral),var(--amber));display:grid;place-items:center;color:#fff;font-size:21px;box-shadow:0 6px 16px rgba(255,90,60,.35)}
+.logo small{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--muted);display:block;line-height:1;margin-top:2px}
+.nav-links{display:flex;gap:28px;font-weight:600;font-size:14.5px;color:#33455F}
+.nav-links a:hover{color:var(--coral)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.nav-cta .btn{padding:11px 20px;font-size:14px}
+.burger{display:none;background:none;border:0;font-size:26px;cursor:pointer;color:var(--navy)}
+/* ---------- HERO ---------- */
+.hero{padding:72px 0 64px;background:radial-gradient(900px 480px at 85% -10%,#FFE3D6 0%,transparent 60%),radial-gradient(700px 420px at -10% 30%,#D8F3EE 0%,transparent 55%),var(--cream)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,5.6vw,66px);font-weight:800;color:var(--navy)}
+.hero h1 .hl{color:var(--coral);position:relative;white-space:nowrap}
+.hero h1 .hl svg{position:absolute;left:0;bottom:-8px;width:100%}
+.hero p.sub{font-size:clamp(16px,1.7vw,19px);color:var(--muted);margin:22px 0 28px;max-width:520px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:#33455F}
+.badge i{font-style:normal}
+/* dashboard mockup */
+.dash{position:relative;transform:rotate(-1.2deg);transition:transform .4s}
+.dash:hover{transform:rotate(0deg) translateY(-4px)}
+.dash-card{background:#fff;border-radius:24px;box-shadow:var(--shadow);border:1px solid #F0E7DA;overflow:hidden}
+.dash-top{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid #F0E7DA}
+.dash-top span{width:11px;height:11px;border-radius:50%}
+.dash-top span:nth-child(1){background:#FF5F57}.dash-top span:nth-child(2){background:#FEBC2E}.dash-top span:nth-child(3){background:#28C840}
+.dash-top b{margin-left:8px;font-size:13px;color:var(--muted)}
+.dash-body{padding:20px}
+.dash-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.dash-row h3{font-size:17px}
+.pill{font-size:12px;font-weight:800;padding:5px 11px;border-radius:999px}
+.pill-green{background:#DDF5EE;color:#0B7A67}.pill-amber{background:#FFF1CF;color:#8A5A00}
+.bars{display:flex;align-items:flex-end;gap:10px;height:110px;margin:8px 0 6px}
+.bars div{flex:1;border-radius:8px 8px 4px 4px;background:linear-gradient(180deg,var(--sky),#7FB3FA)}
+.bars div:nth-child(3),.bars div:nth-child(6){background:linear-gradient(180deg,var(--coral),#FF9A7A)}
+.bars span{font-size:11px;color:var(--muted);text-align:center;display:block;margin-top:6px}
+.timeline{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:10px}
+.tl{display:flex;gap:11px;align-items:flex-start;font-size:13.5px}
+.tl .av{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:12px;color:#fff}
+.tl small{color:var(--muted);display:block}
+.float-chip{position:absolute;background:#fff;border:1px solid #F0E7DA;border-radius:16px;box-shadow:0 12px 30px rgba(10,30,60,.16);padding:12px 16px;font-weight:700;font-size:14px;display:flex;gap:10px;align-items:center}
+.float-chip small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.chip1{top:-18px;right:-8px}
+.chip2{bottom:-20px;left:-14px}
+.chip-ico{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-size:19px;color:#fff}
+/* ---------- LOGOS ---------- */
+.logos{padding:34px 0 10px}
+.logos p{text-align:center;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.logo-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;margin-top:18px}
+.logo-row span{font-family:'Sora';font-weight:700;font-size:16.5px;color:#8A97AB;white-space:nowrap}
+.logo-row span b{color:#5A6B84}
+/* ---------- MOMENTS ---------- */
+.moments-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.moment{border:1px solid var(--line);background:#fff;border-radius:18px;margin-bottom:12px;overflow:hidden;cursor:pointer;transition:box-shadow .2s,border-color .2s}
+.moment.open{border-color:var(--coral);box-shadow:0 10px 28px rgba(255,90,60,.12)}
+.moment-head{display:flex;gap:14px;align-items:center;padding:18px 20px}
+.moment-head .n{flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:800;color:var(--coral);font-size:14px}
+.moment.open .moment-head .n{background:var(--coral);color:#fff}
+.moment-head h3{font-size:16.5px;flex:1}
+.moment-head .chev{font-size:20px;color:var(--muted);transition:transform .25s}
+.moment.open .chev{transform:rotate(180deg);color:var(--coral)}
+.moment-body{display:none;padding:0 20px 20px 68px;color:var(--muted);font-size:15px}
+.moment.open .moment-body{display:block}
+.moment-body b{color:var(--teal)}
+.moment-note{background:var(--navy);color:#fff;border-radius:var(--r);padding:34px;position:sticky;top:96px}
+.moment-note h3{font-size:24px;margin-bottom:12px}
+.moment-note p{color:#C6D2E4;font-size:15px}
+.moment-note .big{font-family:'Sora';font-size:44px;font-weight:800;color:var(--amber);line-height:1.1;margin:18px 0 4px}
+.moment-note .big small{font-size:15px;color:#C6D2E4;font-family:'Inter';font-weight:500}
+/* ---------- ENGINES ---------- */
+.engines{background:var(--navy);color:#fff}
+.engines .lede{color:#B9C6DA}
+.engines .eyebrow{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:var(--amber)}
+.eng-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.eng{border-radius:var(--r);padding:28px 24px;cursor:pointer;border:1.5px solid rgba(255,255,255,.14);transition:transform .2s,background .2s,border-color .2s;position:relative;overflow:hidden}
+.eng:hover{transform:translateY(-5px)}
+.eng.active{background:#12294D;border-color:var(--coral)}
+.eng .num{font-family:'Sora';font-size:13px;font-weight:800;letter-spacing:.12em;opacity:.65}
+.eng .ico{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:25px;margin:16px 0 14px}
+.eng h3{font-size:20px;margin-bottom:8px}
+.eng p{font-size:14.5px;color:#B9C6DA}
+.eng .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.eng .tags span{font-size:12px;font-weight:600;background:rgba(255,255,255,.09);padding:5px 10px;border-radius:999px}
+.eng-detail{margin-top:22px;background:#0E2447;border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:30px 32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.eng-detail h3{font-size:24px;margin-bottom:10px}
+.eng-detail p{color:#B9C6DA;font-size:15.5px}
+.eng-detail ul{list-style:none;display:grid;gap:10px;font-size:15px}
+.eng-detail li::before{content:"✓ ";color:var(--teal);font-weight:800}
+/* ---------- JOURNEY ---------- */
+.journey-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;position:relative}
+.step::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--coral);z-index:2}
+.step:last-child::after{display:none}
+.step .s-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:23px;color:#fff;margin-bottom:14px}
+.step h3{font-size:17.5px;margin-bottom:6px}
+.step p{font-size:14.5px;color:var(--muted)}
+.step .rec{margin-top:12px;font-size:12.5px;font-weight:700;color:var(--teal);background:#DDF5EE;display:inline-block;padding:5px 11px;border-radius:999px}
+/* ---------- MIRA ---------- */
+.mira{background:linear-gradient(135deg,#0A1E3C,#123A6B);color:#fff;border-radius:28px;padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.mira h2{color:#fff}
+.mira p{color:#B9C6DA;margin-top:14px;font-size:16px}
+.chat{background:#0E2447;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:20px}
+.chat-log{display:grid;gap:12px;min-height:190px}
+.msg{max-width:88%;padding:12px 15px;border-radius:16px;font-size:14.5px;line-height:1.5}
+.msg.user{justify-self:end;background:var(--coral);color:#fff;border-bottom-right-radius:5px}
+.msg.ai{justify-self:start;background:#1B3A63;color:#E6EDF7;border-bottom-left-radius:5px}
+.msg.ai b{color:var(--amber)}
+.chat-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chat-btns button{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer}
+.chat-btns button:hover{background:var(--coral);border-color:var(--coral)}
+/* ---------- OBJECTIONS ---------- */
+.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.obj{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;cursor:pointer;min-height:230px;transition:transform .2s,box-shadow .2s}
+.obj:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.obj .tag{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.obj h3{font-size:19px;margin:12px 0 8px}
+.obj p{font-size:14.5px;color:var(--muted)}
+.obj .flip-hint{margin-top:14px;font-size:13px;font-weight:700;color:var(--sky)}
+.obj .reality{display:none}
+.obj.flipped{background:var(--navy);color:#fff;border-color:var(--navy)}
+.obj.flipped p{color:#C6D2E4}
+.obj.flipped .tag{color:var(--amber)}
+.obj.flipped .myth{display:none}
+.obj.flipped .reality{display:block}
+/* ---------- QUOTES ---------- */
+.quotes{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.quote{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px}
+.quote.big p{font-family:'Sora';font-size:clamp(19px,2.2vw,25px);font-weight:600;line-height:1.45;color:var(--navy)}
+.quote footer{margin-top:20px;display:flex;gap:12px;align-items:center}
+.quote footer .av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;font-size:16px}
+.quote footer b{display:block;font-size:15px}
+.quote footer small{color:var(--muted);font-size:13px}
+.quote.mini p{font-size:16.5px;color:var(--ink);font-weight:600}
+.stars{color:var(--amber);letter-spacing:3px;font-size:17px;margin-bottom:12px}
+/* ---------- STEPS ---------- */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stepcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;position:relative}
+.stepcard .k{font-family:'Sora';font-size:52px;font-weight:800;color:#F3E4D3;line-height:1}
+.stepcard h3{font-size:20px;margin:14px 0 8px}
+.stepcard p{font-size:14.5px;color:var(--muted)}
+.stepcard .meta{margin-top:16px;font-size:13px;font-weight:800;color:var(--coral)}
+/* ---------- WHO ---------- */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.who{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.who .w-ico{font-size:26px;margin-bottom:12px}
+.who h3{font-size:18px;margin-bottom:6px}
+.who p{font-size:14.5px;color:var(--muted)}
+.who ul{margin-top:12px;list-style:none;display:grid;gap:6px;font-size:13.5px;font-weight:600;color:#33455F}
+.who li::before{content:"• ";color:var(--coral);font-weight:800}
+/* ---------- CALC ---------- */
+.calc{background:#fff;border:1px solid var(--line);border-radius:28px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.calc label{font-weight:700;font-size:14px;display:block;margin:18px 0 8px}
+.calc input[type=range]{width:100%;accent-color:var(--coral)}
+.calc .val{font-family:'Sora';font-weight:800;font-size:22px;color:var(--navy)}
+.calc-out{background:var(--navy);color:#fff;border-radius:20px;padding:30px;text-align:center}
+.calc-out .big{font-family:'Sora';font-size:clamp(34px,4vw,50px);font-weight:800;color:var(--amber);line-height:1.05}
+.calc-out p{color:#C6D2E4;margin-top:10px;font-size:14.5px}
+/* ---------- FAQ / CTA / FOOTER ---------- */
+.faq-item{border-bottom:1px solid var(--line);padding:20px 0;cursor:pointer}
+.faq-item h3{font-size:18px;display:flex;justify-content:space-between;gap:16px}
+.faq-item p{display:none;color:var(--muted);margin-top:10px;max-width:720px;font-size:15px}
+.faq-item.open p{display:block}
+.cta{background:linear-gradient(135deg,var(--coral),#FF7A3D);color:#fff;border-radius:28px;padding:56px;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#FFE3DB;max-width:560px;margin:14px auto 26px;font-size:17px}
+.cta .btn{background:#fff;color:var(--coral-d)}
+footer{background:var(--navy);color:#B9C6DA;padding:56px 0 34px;font-size:14.5px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot-grid h4{color:#fff;font-size:15px;margin-bottom:14px}
+.foot-grid a{display:block;padding:4px 0}
+.foot-grid a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px}
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .hero-grid,.moments-grid,.mira,.calc,.quotes{grid-template-columns:1fr}
+  .eng-grid{grid-template-columns:repeat(2,1fr)}
+  .journey-grid{grid-template-columns:repeat(2,1fr)}
+  .step::after{display:none}
+  .obj-grid,.steps-grid,.who-grid{grid-template-columns:1fr 1fr}
+  .eng-detail{grid-template-columns:1fr}
+  .moment-note{position:static}
+  .nav-links,.nav-cta .btn-ghost{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;background:var(--cream);flex-direction:column;padding:18px 22px;gap:16px;border-bottom:1px solid var(--line)}
+  .chip1{right:0}.chip2{left:0}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  section{padding:60px 0}
+  .eng-grid,.journey-grid,.obj-grid,.steps-grid,.who-grid{grid-template-columns:1fr}
+  .mira,.calc,.cta{padding:32px 22px}
+  .float-chip{display:none}
+}
+</style>
+</head>
+<body>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><span class="logo-mark">M</span><span>Missio<small>ONE PLATFORM · ENDLESS IMPACT</small></span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#moments">Why switch</a>
+      <a href="#platform">The platform</a>
+      <a href="#mira">Meet MIRA</a>
+      <a href="#who">Who it's for</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#audit">Sign in</a>
+      <a class="btn btn-coral" href="#audit">Let's talk →</a>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Fundraising · CRM · Events · HR — one login</span>
+      <h1>Run your <span class="hl">mission<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3 9 Q 100 -2 197 8" stroke="#FFB020" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span>,<br>not your software stack.</h1>
+      <p class="sub">Missio brings giving, events, donor relationships and your team into one system — so every hour goes to the people you serve, not to reconciling seven tools.</p>
+      <div class="hero-cta">
+        <a class="btn btn-coral" href="#audit">Book a free stack audit →</a>
+        <a class="btn btn-ghost" href="#platform">See the platform ↓</a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge"><i>✓</i> Migration included</span>
+        <span class="badge"><i>✓</i> No IT department required</span>
+        <span class="badge"><i>✓</i> Up and running in days</span>
+      </div>
+    </div>
+    <div class="dash">
+      <div class="dash-card">
+        <div class="dash-top"><span></span><span></span><span></span><b>Missio — one record for every supporter</b></div>
+        <div class="dash-body">
+          <div class="dash-row"><h3>Giving this month</h3><span class="pill pill-green">▲ Recurring up</span></div>
+          <div class="bars">
+            <div style="height:42%"><span>Jan</span></div>
+            <div style="height:58%"><span>Feb</span></div>
+            <div style="height:74%"><span>Mar</span></div>
+            <div style="height:52%"><span>Apr</span></div>
+            <div style="height:88%"><span>May</span></div>
+            <div style="height:100%"><span>Jun</span></div>
+          </div>
+          <div class="timeline">
+            <div class="tl"><span class="av" style="background:var(--coral)">MW</span><div><b>Marcus Webb</b> — gave after the spring gala <small>Donation · Event · Volunteer — one timeline</small></div></div>
+            <div class="tl"><span class="av" style="background:var(--teal)">AK</span><div><b>Ana Kim</b> — signed up to volunteer Saturday <small>Volunteer form fed the same donor record</small></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="float-chip chip1"><span class="chip-ico" style="background:var(--teal)">✦</span><div>MIRA drafted your appeal<small>Ready to review in 2 min</small></div></div>
+      <div class="float-chip chip2"><span class="chip-ico" style="background:var(--amber)">♥</span><div>1 login · 1 ledger · 1 record<small>No more seven logins</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGOS ============ -->
+<div class="logos wrap">
+  <p>Trusted by mission-driven teams</p>
+  <div class="logo-row">
+    <span><b>Team Rubicon</b></span><span><b>Lakeland Habitat</b> for Humanity</span><span><b>University of South Florida</b></span><span><b>African Wildlife</b> Foundation</span><span><b>Sightsavers</b> India</span><span><b>Rainforest</b> Alliance</span><span><b>Dogs 2 DogTags</b></span>
+  </div>
+</div>
+
+<!-- ============ MOMENTS ============ -->
+<section id="moments">
+  <div class="wrap moments-grid">
+    <div class="rv">
+      <span class="eyebrow"><span class="dot"></span> Sound familiar?</span>
+      <div class="sec-head"><h2>Most teams come to us at one of six moments.</h2>
+      <p class="lede">If any of these is happening right now, the cost of waiting another renewal cycle is measured in staff hours. Tap a moment — this is what Missio does about it.</p></div>
+      <div class="moment-note">
+        <h3>Seven tools. Seven logins. Seven ways to spell the same donor's name.</h3>
+        <p>That is why your current setup feels hard. One system is less to learn, not more — and you switch engines on when you're ready, not all at once.</p>
+        <div class="big">7 → 1<small> &nbsp;tools become one platform</small></div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="moment open" onclick="toggleMoment(this)"><div class="moment-head"><span class="n">1</span><h3>Fundraising operations are breaking</h3><span class="chev">▾</span></div><div class="moment-body">Donation pages, events, donor records, email, payments and reporting live in different places — and someone reconciles them by hand. <b>What Missio does:</b> connects giving, events, donor relationships and revenue operations in one system.</div></div>
+      <div class="moment" onclick="toggleMoment(this)"><div class="moment-head"><span class="n">2</span><h3>A new ED, COO or CDO just arrived</h3><span class="chev">▾</span></div><div class="moment-body">A new leader inherits a patchwork of tools and needs a modernization win in the first year. <b>What Missio does:</b> starts with the one workflow costing your team the most hours every week.</div></div>
+      <div class="moment" onclick="toggleMoment(this)"><div class="moment-head"><span class="n">3</span><h3>Renewal is coming and it stings</h3><span class="chev">▾</span></div><div class="moment-body">The incumbent feels too expensive, too limited, or too fragmented — and the quote went up again. <b>What Missio does:</b> before you renew, maps everything you're still stitching together outside the CRM.</div></div>
+      <div class="moment" onclick="toggleMoment(this)"><div class="moment-head"><span class="n">4</span><h3>A campaign or alumni push is starting</h3><span class="chev">▾</span></div><div class="moment-body">Advancement needs cleaner journeys, events, digital giving and reporting — this fiscal year. <b>What Missio does:</b> modern advancement workflows without an enterprise implementation burden.</div></div>
+      <div class="moment" onclick="toggleMoment(this)"><div class="moment-head"><span class="n">5</span><h3>Programs grew faster than operations</h3><span class="chev">▾</span></div><div class="moment-body">Fundraising creates the demand, but the team struggles to staff, schedule, deliver and report the impact. <b>What Missio does:</b> donor systems track the money — Missio also connects the work behind the mission.</div></div>
+      <div class="moment" onclick="toggleMoment(this)"><div class="moment-head"><span class="n">6</span><h3>Your vendor is being consolidated</h3><span class="chev">▾</span></div><div class="moment-body">Mergers and forced migrations push customers off platforms they did not choose to leave. <b>What Missio does:</b> consolidates what you run across multiple tools into one platform, at a fraction of your current annual spend.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENGINES ============ -->
+<section class="engines" id="platform">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow"><span class="dot"></span> The Missio engines</span>
+      <h2 style="color:#fff">Four engines. One platform. Built for impact.</h2>
+      <p class="lede">Everything your organization needs to manage relationships, engage supporters, streamline operations and grow your mission — all in one connected platform. Tap an engine.</p>
+    </div>
+    <div class="eng-grid rv">
+      <div class="eng active" data-eng="0" onclick="showEngine(0)"><div class="num">ENGINE 01</div><div class="ico" style="background:var(--coral)">🌐</div><h3>Growth Engine</h3><p>Web presence — bring in support without bringing in another tool.</p><div class="tags"><span>Website &amp; CMS</span><span>Donation pages</span><span>Events</span><span>MIRA drafting</span></div></div>
+      <div class="eng" data-eng="1" onclick="showEngine(1)"><div class="num">ENGINE 02</div><div class="ico" style="background:var(--sky)">♥</div><h3>Relationship Engine</h3><p>Donor CRM &amp; comms — every donor in one view, even when staff leave.</p><div class="tags"><span>Donor CRM</span><span>Shared timeline</span><span>Segments</span></div></div>
+      <div class="eng" data-eng="2" onclick="showEngine(2)"><div class="num">ENGINE 03</div><div class="ico" style="background:var(--teal)">👥</div><h3>Execution Engine</h3><p>HR &amp; team — the part most nonprofit systems miss: your people.</p><div class="tags"><span>Hiring</span><span>Onboarding</span><span>Scheduling</span></div></div>
+      <div class="eng" data-eng="3" onclick="showEngine(3)"><div class="num">ENGINE 04</div><div class="ico" style="background:var(--amber)">📊</div><h3>Revenue Engine</h3><p>Finance &amp; reporting — from the gift to the books, no handoff.</p><div class="tags"><span>Fundraising</span><span>QuickBooks sync</span><span>Reporting</span></div></div>
+    </div>
+    <div class="eng-detail rv" id="engDetail">
+      <div><h3 id="engTitle">Growth Engine — your front door, finally connected</h3><p id="engText">Website, donation pages, events, forms, email and SMS — all in one connected system, with MIRA ready to draft your first page or appeal. Every form feeds the same donor record, so no supporter falls through the cracks.</p></div>
+      <ul id="engList"><li>Website &amp; CMS your team can actually update</li><li>Donation pages that go live in hours, not weeks</li><li>Events &amp; ticketing tied to the donor record</li><li>MIRA drafts your first page or appeal</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow"><span class="dot"></span> Follow one supporter</span>
+      <h2>This is the difference between a platform and a stack.</h2>
+      <p class="lede">Without Missio, the ticketing platform never tells the CRM who he is. With Missio, Marcus Webb is one record — everywhere.</p>
+    </div>
+    <div class="journey-grid rv">
+      <div class="step"><div class="s-ico" style="background:var(--coral)">♥</div><h3>1 · Gives</h3><p>Marcus donates after the spring gala. The gift lands on his record instantly.</p><span class="rec">Same record →</span></div>
+      <div class="step"><div class="s-ico" style="background:var(--sky)">🎟</div><h3>2 · Attends</h3><p>He buys a ticket to the fall dinner. The event tool already knows who he is.</p><span class="rec">Same record →</span></div>
+      <div class="step"><div class="s-ico" style="background:var(--teal)">🤝</div><h3>3 · Volunteers</h3><p>He signs up for a Saturday build day. Volunteer intake feeds the same timeline.</p><span class="rec">Same record →</span></div>
+      <div class="step"><div class="s-ico" style="background:var(--amber)">💼</div><h3>4 · Works</h3><p>He joins the team. Hiring, onboarding and scheduling live on that same record.</p><span class="rec">One person, one record</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MIRA ============ -->
+<section id="mira" style="padding-top:20px">
+  <div class="wrap">
+    <div class="mira rv">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:var(--amber)">✦ Meet MIRA</span>
+        <h2 style="margin-top:16px">MIRA sees across all four engines at once.</h2>
+        <p>Bolt-on AI reads one silo. MIRA reads giving, events, volunteers, programs and staffing together — so it can tell you not just who is likely to give, but whether you have the people to deliver what that gift funds.</p>
+        <p style="margin-top:12px">Try it — tap a prompt and watch MIRA draft.</p>
+      </div>
+      <div class="chat">
+        <div class="chat-log" id="chatLog">
+          <div class="msg ai"><b>MIRA</b> — Hi, I'm MIRA. I can see your giving, events and volunteers in one place. What should we draft first?</div>
+        </div>
+        <div class="chat-btns">
+          <button onclick="miraReply('appeal')">Draft a year-end appeal</button>
+          <button onclick="miraReply('donor')">Who is likely to give again?</button>
+          <button onclick="miraReply('event')">Plan the gala follow-up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OBJECTIONS ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow"><span class="dot"></span> Obstacles to overcome</span>
+      <h2>What boards say before they say yes.</h2>
+      <p class="lede">Three objections we hear in almost every evaluation — and what's actually true. Tap a card to flip it.</p>
+    </div>
+    <div class="obj-grid rv">
+      <div class="obj" onclick="this.classList.toggle('flipped')"><div class="myth"><span class="tag">The myth</span><h3>“All-in-one platforms are too expensive and complicated for us.”</h3><p>Switching will cost more, take months to migrate, and be too complicated for our team to learn.</p><div class="flip-hint">Tap to see the reality →</div></div><div class="reality"><span class="tag">The reality</span><h3>Less than your stack — and live in days.</h3><p>Missio replaces your entire software stack for less than what you're paying for separate tools. Our team handles the migration, and most staff are up and running in days — no IT department required.</p></div></div>
+      <div class="obj" onclick="this.classList.toggle('flipped')"><div class="myth"><span class="tag">The myth</span><h3>“Migration will eat our fundraising season.”</h3><p>Moving donor records and giving history will take months — and something will break mid-appeal.</p><div class="flip-hint">Tap to see the reality →</div></div><div class="reality"><span class="tag">The reality</span><h3>You pick the cutover date.</h3><p>Our team runs the migration and reconciles every total against your current system. Both systems stay live in parallel until the numbers match — most teams cut over after year-end appeals and before spring events.</p></div></div>
+      <div class="obj" onclick="this.classList.toggle('flipped')"><div class="myth"><span class="tag">The myth</span><h3>“Our team isn't technical enough for a platform this big.”</h3><p>A system that does this much will need an administrator we can't afford — and staff will never adopt it.</p><div class="flip-hint">Tap to see the reality →</div></div><div class="reality"><span class="tag">The reality</span><h3>One system is less to learn, not more.</h3><p>Seven products mean seven logins and seven support teams. One system means one login — and you turn engines on when you're ready for them, not all at once.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow"><span class="dot"></span> Testimonials</span>
+      <h2>In the words of the teams we serve.</h2>
+    </div>
+    <div class="quotes rv">
+      <div class="quote big">
+        <div class="stars">★★★★★</div>
+        <p>“The Missio platform has transformed the way that people around the world support Team Rubicon veterans as we respond to natural disasters.”</p>
+        <footer><span class="av" style="background:var(--coral)">JW</span><div><b>Jake Wood</b><small>CEO &amp; Co-Founder, Team Rubicon</small></div></footer>
+      </div>
+      <div class="quote mini">
+        <div class="stars">★★★★★</div>
+        <p>“We've had a wonderful experience using Missio. Having our fundraising, donor information, and events in one place makes it easier for our team to stay organized. The Missio team walked us through the platform, answered our questions, and was responsive whenever we needed help. I'd happily recommend Missio to other nonprofits looking to simplify their day-to-day work.”</p>
+        <footer><span class="av" style="background:var(--teal)">J</span><div><b>Julienne</b><small>Team AGN</small></div></footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 STEPS ============ -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow"><span class="dot"></span> How switching works</span>
+      <h2>Three steps. No fundraising season lost.</h2>
+    </div>
+    <div class="steps-grid rv">
+      <div class="stepcard"><div class="k">01</div><h3>The stack audit</h3><p>We map every tool you're paying for against what Missio covers and show the real annual difference. If consolidating doesn't save you money, we'll tell you.</p><div class="meta">45 MINUTES · NO COMMITMENT</div></div>
+      <div class="stepcard"><div class="k">02</div><h3>We move your data</h3><p>Donors, giving history, pledges, recurring gifts, event records and volunteers. Our team runs the migration and reconciles totals against your current system.</p><div class="meta">2–4 WEEKS · INCLUDED, NOT BILLED HOURLY</div></div>
+      <div class="stepcard"><div class="k">03</div><h3>Parallel run, then cutover</h3><p>Both systems stay live while your team trains and verifies the numbers. You pick the cutover date around your fundraising calendar.</p><div class="meta">YOU DECIDE WHEN</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section id="who" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow"><span class="dot"></span> Built for any organization</span>
+      <h2>However you're built to do good, Missio flexes to fit.</h2>
+      <p class="lede">Whether you're a local community co-op, a new church, or a 200-person international relief org, Missio's engines configure to your size and workflow.</p>
+    </div>
+    <div class="who-grid rv">
+      <div class="who"><div class="w-ico">🚑</div><h3>Relief Organizations</h3><p>Field teams, rapid response and donors who give when the news breaks.</p><ul><li>Surge campaigns</li><li>Volunteer deployment</li><li>Field scheduling</li></ul></div>
+      <div class="who"><div class="w-ico">🏡</div><h3>Local Nonprofits</h3><p>Small teams wearing every hat, with no IT department behind them.</p><ul><li>Donor CRM</li><li>Events</li><li>QuickBooks sync</li></ul></div>
+      <div class="who"><div class="w-ico">🏛</div><h3>Foundations</h3><p>Grantmaking, stewardship and boards that ask for clean numbers.</p><ul><li>Pledges</li><li>Multi-year giving</li><li>Board reporting</li></ul></div>
+      <div class="who"><div class="w-ico">⛪</div><h3>Churches</h3><p>Recurring giving, volunteers and staff scheduling in one community.</p><ul><li>Recurring giving</li><li>Volunteer rosters</li><li>Staff scheduling</li></ul></div>
+      <div class="who"><div class="w-ico">📣</div><h3>Advocacy Groups</h3><p>Campaigns that spike, lists that grow fast, moments you cannot miss.</p><ul><li>Petitions &amp; forms</li><li>Email &amp; SMS</li><li>Supporter journeys</li></ul></div>
+      <div class="who"><div class="w-ico">🎓</div><h3>Private Schools</h3><p>Annual fund, auction, parent events and advancement records.</p><ul><li>Annual fund</li><li>Auctions</li><li>Household records</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section id="pricing" style="padding-top:20px">
+  <div class="wrap">
+    <div class="calc rv">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> The stack audit — try it</span>
+        <h2 style="margin-top:14px">What is your software stack really costing you?</h2>
+        <p class="lede" style="margin-top:10px">Most teams pay for 5–8 separate tools. Move the sliders — this is what fragmentation costs every year, before the hours your team spends reconciling it all by hand.</p>
+        <label>Tools in your stack: <span class="val" id="toolVal">7 tools</span></label>
+        <input type="range" id="tools" min="2" max="12" value="7" oninput="calc()">
+        <label>Average cost per tool: <span class="val" id="costVal">$99 / month</span></label>
+        <input type="range" id="cost" min="20" max="300" step="10" value="99" oninput="calc()">
+      </div>
+      <div class="calc-out">
+        <div style="font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#B9C6DA">Your stack costs about</div>
+        <div class="big" id="calcOut">$8,316 / year</div>
+        <p>That's <b id="calcTools" style="color:#fff">7 tools</b>, 7 logins, 7 support teams — before the staff hours spent stitching them together. Missio replaces them with one platform, and our team handles the migration.</p>
+        <a class="btn btn-coral" href="#audit" style="margin-top:20px">Get my exact number →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" style="padding-top:20px">
+  <div class="wrap" style="max-width:820px">
+    <div class="sec-head rv">
+      <span class="eyebrow"><span class="dot"></span> FAQ</span>
+      <h2>Questions we hear most often.</h2>
+    </div>
+    <div class="rv">
+      <div class="faq-item" onclick="this.classList.toggle('open')"><h3>How long does migration really take? <span>＋</span></h3><p>Most organizations are moved in 2–4 weeks, and both systems stay live in parallel until every total reconciles. You choose the cutover date around your fundraising calendar — for most teams that means after year-end appeals and before spring events.</p></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><h3>Do we have to use all four engines at once? <span>＋</span></h3><p>No. You turn engines on when you're ready for them. Many teams start with Growth + Relationship (website, giving, CRM) and add Execution (HR) and Revenue (finance) later.</p></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><h3>What happens to our donor history? <span>＋</span></h3><p>Everything moves — donors, giving history, pledges, recurring gifts, event records and volunteers — and our team reconciles every total against your current system before cutover.</p></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><h3>Is there a contract or setup fee? <span>＋</span></h3><p>Migration is included, not billed hourly. Book a free 45-minute stack audit and we'll show you a line-item comparison against what you pay today — if consolidating doesn't save you money, we'll tell you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="audit" style="padding-top:10px">
+  <div class="wrap">
+    <div class="cta rv">
+      <h2>Bring your renewal quote.<br>We'll bring the math.</h2>
+      <p>Forty-five minutes, no commitment, and a line-item comparison against what you pay today.</p>
+      <a class="btn" href="mailto:hello@missio.io?subject=Free%20stack%20audit%20—%20Missio">Book your free stack audit →</a>
+      <p style="margin:18px 0 0;font-size:14px;color:#FFE3DB">Or call us: <b style="color:#fff">(844) 568-0941</b> · 373 Broadway, Suite B17, New York, NY 10013</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top" style="color:#fff"><span class="logo-mark">M</span><span>Missio</span></a>
+        <p style="margin-top:14px;max-width:300px">One platform, endless impact. Software for purpose-driven teams — fundraising, CRM, events and HR in one login.</p>
+      </div>
+      <div><h4>Platform</h4><a href="#platform">Growth Engine</a><a href="#platform">Relationship Engine</a><a href="#platform">Execution Engine</a><a href="#platform">Revenue Engine</a><a href="#mira">MIRA AI</a></div>
+      <div><h4>Who it's for</h4><a href="#who">Relief Organizations</a><a href="#who">Local Nonprofits</a><a href="#who">Foundations</a><a href="#who">Churches</a><a href="#who">Private Schools</a></div>
+      <div><h4>Company</h4><a href="#moments">Why switch</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#audit">Let's talk</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Missio. All rights reserved. — Redesign concept prepared for the Freelancer contest “Missio.io Bold Website Redesign”.</span>
+      <span>Facebook · LinkedIn · Instagram · X</span>
+    </div>
+  </div>
+</footer>
+<script>
+// ---------- Mobile nav ----------
+document.getElementById('burger').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){ document.getElementById('navLinks').classList.remove('open'); });
+});
+
+// ---------- Moments accordion ----------
+function toggleMoment(el){
+  var wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.moment').forEach(function(m){ m.classList.remove('open'); });
+  if(!wasOpen) el.classList.add('open');
+}
+
+// ---------- Engine tabs ----------
+var ENGINES = [
+  {title:'Growth Engine — your front door, finally connected',
+   text:'Website, donation pages, events, forms, email and SMS — all in one connected system, with MIRA ready to draft your first page or appeal. Every form feeds the same donor record, so no supporter falls through the cracks.',
+   list:['Website & CMS your team can actually update','Donation pages that go live in hours, not weeks','Events & ticketing tied to the donor record','MIRA drafts your first page or appeal']},
+  {title:'Relationship Engine — nobody\u2019s knowledge walks out the door',
+   text:'Every contact, conversation, gift, pledge and task lives on one shared timeline. When staff turn over, the organizational knowledge stays in Missio — not in someone\u2019s inbox.',
+   list:['One donor record, every touchpoint on it','Moves management, segments, tasks & reminders','Email & SMS from the same record','Institutional memory that survives staff changes']},
+  {title:'Execution Engine — the part most nonprofit systems miss',
+   text:'Hiring, onboarding, scheduling, time tracking and project work — all in the same system as your mission operations. Post a job, run a background check and onboard a hire without adding another tool.',
+   list:['Hiring & job posts with background checks','Onboarding checklists in one place','Scheduling & time tracking','Project work tied to programs, not spreadsheets']},
+  {title:'Revenue Engine — from the gift to the books, no handoff',
+   text:'Online giving, pledges, recurring donations, invoicing and QuickBooks sync all flow through one workflow. Giving and finance teams work from the same numbers, so nothing needs re-keying.',
+   list:['Online giving, pledges & recurring donations','Invoicing built into the same workflow','QuickBooks sync — no re-keying','Board-ready reporting from live numbers']}
+];
+function showEngine(i){
+  document.querySelectorAll('.eng').forEach(function(e){ e.classList.remove('active'); });
+  document.querySelector('.eng[data-eng="'+i+'"]').classList.add('active');
+  document.getElementById('engTitle').textContent = ENGINES[i].title;
+  document.getElementById('engText').textContent = ENGINES[i].text;
+  document.getElementById('engList').innerHTML = ENGINES[i].list.map(function(x){ return '<li>'+x+'</li>'; }).join('');
+}
+
+// ---------- MIRA mini-demo ----------
+var MIRA = {
+  appeal:'<b>MIRA</b> — Draft ready: “Every hour you give back is an hour a veteran gets the support they earned. Your gift tonight keeps Team Rubicon moving — will you stand with them?”<br><br>It pulls in your last three gala results and your top 20 donors. Want a shorter version for SMS too?',
+  donor:'<b>MIRA</b> — Marcus Webb has given after every gala for three years — and he just opened your last two emails. He\u2019s your strongest re-ask. Ana Kim volunteered twice this spring; she\u2019s ready for a first gift ask.',
+  event:'<b>MIRA</b> — Gala follow-up plan: thank-you email tonight (I\u2019ve drafted it), pledge reminders to the 14 guests who pledged on the night, and a volunteer invite to the 9 attendees who asked about Saturday builds. Shall I queue them?'
+};
+function miraReply(kind){
+  var log = document.getElementById('chatLog');
+  var userText = {appeal:'Draft a year-end appeal', donor:'Who is likely to give again?', event:'Plan the gala follow-up'}[kind];
+  var u = document.createElement('div'); u.className='msg user'; u.textContent = userText; log.appendChild(u);
+  var a = document.createElement('div'); a.className='msg ai'; a.innerHTML = '…'; log.appendChild(a);
+  setTimeout(function(){ a.innerHTML = MIRA[kind]; }, 650);
+}
+
+// ---------- Stack-audit calculator ----------
+function calc(){
+  var t = +document.getElementById('tools').value;
+  var c = +document.getElementById('cost').value;
+  document.getElementById('toolVal').textContent = t + ' tools';
+  document.getElementById('costVal').textContent = '$' + c + ' / month';
+  var annual = t * c * 12;
+  document.getElementById('calcOut').textContent = '$' + annual.toLocaleString('en-US') + ' / year';
+  document.getElementById('calcTools').textContent = t + ' tools';
+}
+calc();
+
+// ---------- Scroll reveal ----------
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
